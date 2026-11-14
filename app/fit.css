@@ -1,0 +1,165 @@
+/* ==================================================================== */
+/* Height-aware typography: large type is bounded by viewport height too, */
+/* so short laptop screens never collide with the nav or selectors.        */
+.hero-title { font-size: min(8.4vw, 15.5vh); }
+.beat-name { font-size: min(10.5vw, 19vh); }
+.beat-theme { font-size: min(5vw, 9vh); }
+.beat-tagline { font-size: min(2.8vw, 5.4vh); }
+.interlude { font-size: min(5.4vw, 10vh); }
+.finale-title { font-size: min(9vw, 15vh); margin: 0.8rem 0 1.4rem; }
+.beat-top { padding-top: max(6.5rem, 12vh); }
+.coll-name { font-size: min(10vw, 17vh); }
+.coll-tag { font-size: min(2.6vw, 5vh); }
+.fr-name { font-size: min(11vw, 20vh); }
+.fr-tag { font-size: min(2.8vw, 5.4vh); }
+.disc-title { font-size: min(10vw, 18vh); }
+.disc-question { font-size: min(6.4vw, 11vh); }
+.disc-name { font-size: min(12vw, 20vh); }
+.mh-title { font-size: min(11vw, 19vh); }
+
+@media (max-height: 820px) and (min-width: 821px) {
+  .beat { padding-top: 6rem; padding-bottom: 5rem; }
+  .beat-pyramid > div { padding: 0.5rem 0; }
+  .beat-pyramid dd { font-size: 1.2rem; }
+  .beat-pyramid { margin-bottom: 1.4rem; }
+  .beat-theme { margin: 0.4rem 0 1rem; }
+  .hero-copy { margin-top: 1.4rem; }
+  .scroll-cue { margin-top: 1.6rem; }
+  .collection-panel { padding-top: 5.5rem; padding-bottom: 7.5rem; }
+  .coll-eyebrow { margin-bottom: 0.6rem; }
+  .coll-tag { margin: 0.4rem 0 0.8rem; }
+  .coll-notes { display: none; }
+  .collection .body-copy { display: block; font-size: 0.92rem; max-width: 40ch; margin: 0 0 1.4rem; }
+  .coll-selector { padding-bottom: 1rem; }
+  .coll-item { padding-top: 0.8rem; }
+  .coll-item-name { font-size: 1.3rem; }
+  .coll-arrow { width: 2.8rem; height: 2.8rem; }
+  .disc-stage { padding-top: 5.5rem; }
+  .disc-options { margin-top: 1.2rem; }
+  .disc-opt { padding: 0.8rem 1.2rem; }
+  .disc-opt-label { font-size: 1.35rem; }
+  .disc-progress { margin-bottom: 1.2rem; }
+  .fr-tag { margin: 0.6rem 0 1.4rem; }
+}
+@media (max-height: 640px) and (min-width: 821px) {
+  .collection .body-copy { display: none; }
+  .beat-notes { display: none; }
+  .hero-copy { display: none; }
+}
+
+/* Nav gains a quiet paper backdrop once content scrolls beneath it */
+.nav {
+  transition: color 0.9s var(--ease-out), transform 0.8s var(--ease-out), background-color 0.6s var(--ease-out), backdrop-filter 0.6s;
+}
+.nav[data-solid="true"] {
+  background-color: rgba(242, 235, 225, 0.86);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #15120f;
+  --fg: #15120f;
+  --line: rgba(21, 18, 15, 0.18);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(21, 18, 15, 0.08);
+}
+
+/* Notes without photography: an engraved typographic plate instead of an empty letter */
+.note-type {
+  display: grid;
+  justify-items: center;
+  gap: 0.8rem;
+  text-align: center;
+  padding: 1rem;
+}
+.note-type .display {
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-style: italic;
+  line-height: 1;
+}
+.note-type .eyebrow {
+  opacity: 0.55;
+}
+
+/* ==================================================================== */
+/* Opening title sequence — drawn before the journey begins               */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(246, 238, 230, 0.78), rgba(246, 238, 230, 0.35) 70%, rgba(246, 238, 230, 0));
+  color: #15120f;
+}
+.intro-inner {
+  display: grid;
+  justify-items: center;
+  gap: 1.8rem;
+}
+.intro-mark {
+  width: min(22vh, 150px);
+  height: min(22vh, 150px);
+  overflow: visible;
+}
+.intro-mark circle,
+.intro-mark path.stroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.8;
+  stroke-linecap: round;
+}
+.intro-word {
+  display: flex;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: min(7vw, 9vh);
+  letter-spacing: 0.32em;
+  margin-right: -0.32em;
+  line-height: 1;
+}
+.intro-word span {
+  display: inline-block;
+}
+.intro-line {
+  overflow: hidden;
+}
+.intro-line span {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: min(2.2vw, 3.6vh);
+}
+.intro-skip {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.55;
+}
+
+/* Collection selector reads clearly over any season */
+.coll-selector::before {
+  content: "";
+  position: absolute;
+  inset: -3rem 0 0 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(to top, color-mix(in srgb, var(--paper) 78%, transparent), transparent);
+}
+html[data-tone="light"] .coll-selector::before {
+  background: linear-gradient(to top, rgba(14, 10, 12, 0.6), transparent);
+}
+
+.note-media.is-photo {
+  position: relative;
+}
+.note-media.is-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none;
+}
+.note-card:hover .note-media.is-photo img {
+  transform: scale(1.05);
+}

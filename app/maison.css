@@ -1,0 +1,279 @@
+/* ==================================================================== */
+/* MAISON — editorial, centred, balanced                                  */
+.ms {
+  background: #f5f0e8;
+  color: #15120f;
+  --fg: #15120f;
+  --fg-soft: rgba(21, 18, 15, 0.64);
+  --line: rgba(21, 18, 15, 0.16);
+}
+.ms-hero {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 1.6rem;
+  padding-top: max(8rem, 18vh);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+.ms-title {
+  font-size: min(8.6vw, 15vh);
+  margin: 0;
+  line-height: 0.95;
+}
+.ms-lede {
+  max-width: 46ch;
+  margin: 0 auto;
+}
+.ms-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.8rem, 1.8vw, 1.8rem);
+  align-items: start;
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+.ms-gallery figure {
+  margin: 0;
+}
+.ms-gallery figure:nth-child(even) {
+  margin-top: 4rem;
+}
+.ms-gallery-img {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.ms-gallery-img img {
+  object-fit: cover;
+}
+.ms-gallery figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 0.9rem;
+}
+.ms-gallery figcaption .serif {
+  font-size: 1.5rem;
+}
+
+.ms-manifesto {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 2rem;
+  padding-top: clamp(5rem, 10vw, 9rem);
+  padding-bottom: clamp(5rem, 10vw, 9rem);
+  border-top: 1px solid var(--line);
+}
+.ms-manifesto .display {
+  font-size: clamp(1.9rem, 3.6vw, 3.8rem);
+  line-height: 1.16;
+  margin: 0;
+  max-width: 26ch;
+}
+.ms-manifesto .eyebrow {
+  opacity: 0.55;
+}
+
+.ms-section-head {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 1rem;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+.ms-h2 {
+  font-size: clamp(2.8rem, 5.6vw, 6rem);
+  margin: 0;
+  line-height: 0.98;
+}
+
+.ms-seasons {
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+  border-top: 1px solid var(--line);
+}
+.ms-season {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 7rem);
+  align-items: center;
+  padding: clamp(2rem, 4vw, 3.5rem) 0;
+}
+.ms-season.is-flip .ms-season-media {
+  order: 2;
+}
+.ms-season-media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--tint);
+  border-radius: 2px;
+  max-height: 80vh;
+  width: 100%;
+  justify-self: center;
+}
+.ms-season-media img {
+  object-fit: cover;
+}
+.ms-season-text {
+  display: grid;
+  gap: 1.3rem;
+  justify-items: start;
+  max-width: 30rem;
+  justify-self: center;
+}
+.ms-season-text .eyebrow {
+  display: inline-flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+.ms-state {
+  font-size: clamp(3.2rem, 6.4vw, 6.8rem);
+  font-style: italic;
+  margin: 0;
+  line-height: 1;
+}
+.ms-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  padding: 0.4rem 0 0.6rem;
+}
+.ms-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.15rem;
+}
+.ms-note-img {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--tint);
+  box-shadow: 0 0 0 1px var(--line);
+}
+.ms-note-img img {
+  object-fit: cover;
+}
+
+.ms-band {
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 1.6rem 0;
+  background: #ece5d9;
+}
+.ms-band-track {
+  display: flex;
+  width: max-content;
+  animation: ms-marquee 38s linear infinite;
+}
+.ms-band-track span {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.4rem;
+  padding-right: 2.4rem;
+  font-size: clamp(2.2rem, 4.4vw, 4.4rem);
+  white-space: nowrap;
+}
+@keyframes ms-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ms-craft {
+  padding-top: clamp(5rem, 10vw, 9rem);
+  padding-bottom: clamp(5rem, 9vw, 8rem);
+}
+.ms-craft-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 2vw, 2rem);
+}
+.ms-craft-list li {
+  display: grid;
+  gap: 0.8rem;
+  align-content: start;
+  text-align: center;
+  justify-items: center;
+}
+.ms-craft-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 0.6rem;
+}
+.ms-craft-img img {
+  object-fit: cover;
+  transition: transform 1.6s var(--ease-out);
+}
+.ms-craft-list li:hover .ms-craft-img img {
+  transform: scale(1.06);
+}
+.ms-craft-n {
+  font-size: 2rem;
+  color: var(--champagne-deep);
+  line-height: 1;
+}
+.ms-craft-t {
+  font-size: 1.55rem;
+  margin: 0;
+}
+.ms-craft-list p {
+  margin: 0;
+  color: var(--fg-soft);
+  max-width: 30ch;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.ms-quote {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 1.8rem;
+  padding-top: clamp(5rem, 9vw, 8rem);
+  padding-bottom: clamp(5rem, 9vw, 8rem);
+  border-top: 1px solid var(--line);
+}
+.ms-quote blockquote {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 4.2rem);
+  line-height: 1.1;
+  font-style: italic;
+  max-width: 22ch;
+}
+.ms-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 860px) {
+  .ms-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ms-gallery figure:nth-child(even) {
+    margin-top: 2.5rem;
+  }
+  .ms-season {
+    grid-template-columns: 1fr;
+  }
+  .ms-season.is-flip .ms-season-media {
+    order: 0;
+  }
+  .ms-craft-list {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2.6rem;
+  }
+}

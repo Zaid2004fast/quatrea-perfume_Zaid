@@ -1,0 +1,121 @@
+/* ==================================================================== */
+/* House palette — ivory, ink and antique gold.                           */
+/* Loaded last: refines accents across every page without restructuring. */
+:root {
+  --gold: #a8875a;
+  --gold-ink: #8a6a3e;
+  --gold-soft: rgba(168, 135, 90, 0.35);
+}
+
+::selection {
+  background: #d9c4a0;
+  color: #15120f;
+}
+
+/* Labels on paper pages carry the gold; over the 3D world they keep the scene tone */
+.ms .eyebrow,
+.care .eyebrow,
+.co .eyebrow,
+.ft .eyebrow,
+.epilogue .eyebrow,
+.fr-solid .eyebrow,
+.lost .eyebrow,
+.bag-panel .eyebrow {
+  color: var(--gold-ink);
+}
+.ft-col .eyebrow,
+.ms-manifesto .eyebrow {
+  opacity: 1;
+}
+
+/* Hairlines in gold where they structure the page */
+.ft::before {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+}
+.ft-services .season-mark,
+.ms-season-text .season-mark,
+.ms-manifesto .season-mark,
+.ms-quote .season-mark {
+  color: var(--gold);
+}
+.card::after,
+.coll-item-bar {
+  background: var(--gold);
+}
+.link-u::after {
+  background: currentColor;
+}
+.ft .link-u:hover,
+.care .link-u:hover {
+  color: var(--gold-ink);
+}
+
+/* Primary buttons: ink, turning to warm gold on hover */
+.btn-solid::before {
+  background: linear-gradient(120deg, #c9ab78, #a8875a);
+}
+.btn-solid:hover {
+  border-color: #a8875a;
+}
+
+/* Italic accents in headlines pick up a whisper of gold on paper pages */
+.ms .display em,
+.epilogue .display em,
+.care .display em,
+.co .display em,
+.fr-solid .display em {
+  color: #3a2c1c;
+}
+
+/* Craft numerals and price figures */
+.ms-craft-n,
+.cf-timeline div[data-on="true"] {
+  color: var(--gold);
+}
+.cf-timeline div[data-on="true"] {
+  border-color: var(--gold);
+}
+.cf-timeline div[data-on="true"] span:last-child {
+  color: var(--fg-soft);
+}
+
+/* Loader: ivory field with a gold progress line */
+.loader .season-mark {
+  color: var(--gold);
+}
+
+/* Quiet, consistent dark panel */
+.duo-dark {
+  background: #1b1714;
+}
+.duo-dark .eyebrow {
+  color: #c9ab78;
+}
+
+/* ==================================================================== */
+/* Buttons on paper surfaces always use ink-on-ivory colours, whatever    */
+/* tone the 3D scene behind the page has set (light text in autumn/winter) */
+:is(.bag-panel, .ms, .care, .co, .fr-solid, .epilogue, .ft, .lost) .btn {
+  color: #15120f;
+  border-color: rgba(21, 18, 15, 0.22);
+}
+:is(.bag-panel, .ms, .care, .co, .fr-solid, .epilogue, .ft, .lost) .btn::before {
+  background: #15120f;
+}
+:is(.bag-panel, .ms, .care, .co, .fr-solid, .epilogue, .ft, .lost) .btn:hover {
+  color: #f5f0e8;
+  border-color: #15120f;
+}
+:is(.bag-panel, .ms, .care, .co, .fr-solid, .epilogue, .ft, .lost) .btn-solid {
+  color: #f5f0e8;
+  background: #15120f;
+  border-color: #15120f;
+}
+:is(.bag-panel, .ms, .care, .co, .fr-solid, .epilogue, .ft, .lost) .btn-solid::before {
+  background: linear-gradient(120deg, #c9ab78, #a8875a);
+}
+:is(.bag-panel, .ms, .care, .co, .fr-solid, .epilogue, .ft, .lost) .btn-solid:hover {
+  color: #15120f;
+  border-color: #a8875a;
+}
